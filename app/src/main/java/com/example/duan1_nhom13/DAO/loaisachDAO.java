@@ -38,7 +38,7 @@ public class loaisachDAO {
     public boolean themloaisach(loaisach ls){
         SQLiteDatabase db= dbhelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("maloai",ls.getMaloai());
+
         values.put("tenloai",ls.getTenloai());
         long row = db.insert("loaiphim",null,values);
         return (row>0);
@@ -49,7 +49,7 @@ public class loaisachDAO {
     public boolean udloaisach(loaisach ls){
         SQLiteDatabase db= dbhelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("maloai",ls.getMaloai());
+
         values.put("tenloai",ls.getTenloai());
         long row = db.update("loaiphim",values,"maloai=?",new String[]{String.valueOf(ls.getMaloai())});
 

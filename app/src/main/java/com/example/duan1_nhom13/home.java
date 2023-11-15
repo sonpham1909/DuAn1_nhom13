@@ -83,8 +83,15 @@ public class home extends AppCompatActivity {
 
 
        tvfullname.setText(us.getTen());
+        SharedPreferences preferences = getSharedPreferences("role",MODE_PRIVATE);
+        SharedPreferences.Editor editor =preferences.edit();
+        editor.putInt("role",us.getRole());
+        editor.commit();
+
         if(us.getRole()==1){
             tvrole.setText("Quản lý");
+
+
         }else{
             tvrole.setText("Nhân viên");
         }
@@ -197,6 +204,7 @@ public class home extends AppCompatActivity {
                 return true;
             }
         });
+
 
 
         return false;

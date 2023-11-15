@@ -9,4 +9,18 @@ public class SharedViewModel extends ViewModel {
     public MutableLiveData<String> getSearchText() {
         return searchText;
     }
+
+    private MutableLiveData<Boolean> isSearchViewOpen = new MutableLiveData<>();
+
+    // Getter và setter cho searchQuery và isSearchViewOpen
+
+    // ...
+
+    public void setSearchQuery(String query) {
+        searchText.setValue(query);
+    }
+
+    public void setIsSearchViewOpen(boolean isOpen) {
+        isSearchViewOpen.setValue(isOpen);
+    }
 }

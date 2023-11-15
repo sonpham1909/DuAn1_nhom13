@@ -12,6 +12,10 @@ public class loaisach {
         this.tenloai = tenloai;
     }
 
+    public loaisach(String ten) {
+        this.tenloai =ten;
+    }
+
     public int getMaloai() {
         return maloai;
     }
