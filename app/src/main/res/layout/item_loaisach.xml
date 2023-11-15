@@ -42,20 +42,27 @@
 
        </androidx.constraintlayout.widget.ConstraintLayout>
        <LinearLayout
+           android:backgroundTint="@color/black"
+           android:layout_marginRight="10dp"
+           android:layout_marginLeft="10dp"
+           android:visibility="gone"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:orientation="horizontal"
            android:gravity="center"
-           android:visibility="gone"
+           android:background="@drawable/brloaiphim"
+
            android:id="@+id/editanddel">
            <ImageButton
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:src="@drawable/delete"
                android:id="@+id/btndellp"
+               android:backgroundTint="@color/white"
                android:layout_marginRight="100dp"
                />
            <ImageButton
+               android:backgroundTint="@color/white"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:src="@drawable/baseline_edit_note_24"
