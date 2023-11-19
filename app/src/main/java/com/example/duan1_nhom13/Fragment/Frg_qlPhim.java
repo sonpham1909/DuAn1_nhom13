@@ -1,66 +1,265 @@
 package com.example.duan1_nhom13.Fragment;
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.example.duan1_nhom13.Adapter.LPAdapter;
+import com.example.duan1_nhom13.Adapter.PhimAdapter;
+import com.example.duan1_nhom13.DAO.loaisachDAO;
+import com.example.duan1_nhom13.DAO.phimDAO;
+import com.example.duan1_nhom13.Model.Phim;
+import com.example.duan1_nhom13.Model.loaisach;
 import com.example.duan1_nhom13.R;
+import com.example.duan1_nhom13.SharedViewModel;
+import com.example.duan1_nhom13.spinerAdapter.loaiphimAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Frg_qlPhim#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.ArrayList;
+
+
 public class Frg_qlPhim extends Fragment {
+    private static int REQUEST_CODE_CAMERA = 123;
+    RecyclerView rcv;
+    FloatingActionButton fltbtn;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    ArrayList<loaisach> listls;
+    ArrayList<Phim> listp = new ArrayList<>();
+    SharedViewModel sharedViewModel;
+    int mals;
+    loaisachDAO dao;
+    loaiphimAdapter spnadapter;
+    private int REQUEST_CODE_FOLDER=123;
+    private ActivityResultLauncher<Intent> cameraLauncher;
+    private ActivityResultLauncher<Intent> galleryLauncher;
+    ImageView imgHinh;
+    phimDAO Pdao;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    PhimAdapter adapter;
+
 
     public Frg_qlPhim() {
+
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Frg_qlPhim.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Frg_qlPhim newInstance(String param1, String param2) {
-        Frg_qlPhim fragment = new Frg_qlPhim();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
+        galleryLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
+                        Uri uri = result.getData().getData();
+                        try {
+                            InputStream inputStream = requireActivity().getContentResolver().openInputStream(uri);
+                            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                            imgHinh.setImageBitmap(bitmap);
+                        } catch (FileNotFoundException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                });
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_frg_ql_phim, container, false);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_frg_ql_phim, container, false);
+        // Inflate the layout for this fragment
+        rcv = view.findViewById(R.id.rcvPhim);
+        fltbtn = view.findViewById(R.id.btnaddPhim);
+        Pdao = new phimDAO(getContext());
+        listp = Pdao.getPhim();
+
+
+        GridLayoutManager manager = new GridLayoutManager(getContext(),3);
+        rcv.setLayoutManager(manager);
+
+        adapter= new PhimAdapter(getContext(),listp);
+        rcv.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
+
+
+        sharedViewModel.getSearchText().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String newText) {
+
+                if (TextUtils.isEmpty(newText)){
+                    loadlist();
+                }
+                ArrayList<Phim> filterList = new ArrayList<>();
+                for (Phim book : listp) {
+                    if (book.getTen().toLowerCase().contains(newText.toLowerCase())) {
+                        filterList.add(book);
+                    }
+                }
+
+
+
+                // Cập nhật giao diện hoặc thực hiện tìm kiếm với `newText`
+                // Cập nhật dữ liệu trong RecyclerView
+                adapter = new PhimAdapter(requireContext(), filterList);
+                rcv.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+            }
+        });
+
+
+
+
+
+        fltbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                them();
+
+            }
+        });
+
+
+
+
+
+
+
+        return view;
+    }
+    private Dialog dialog; // Thêm biến dialog vào lớp MainActivity
+
+    public void them(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        View view = getLayoutInflater().inflate(R.layout.add_phim,null);
+        builder.setView(view);
+          dialog = builder.create();
+        dialog.show();
+        imgHinh = view.findViewById(R.id.imgphim);
+        Spinner spn = view.findViewById(R.id.spnloaisach);
+        EditText edtTen = view.findViewById(R.id.edttenPhim);
+        EditText edtgia = view.findViewById(R.id.edtGiave);
+        EditText editThoilg= view.findViewById(R.id.edtthoiluong);
+        Button btnButton = view.findViewById(R.id.btnaddphim);
+        Button choose = view.findViewById(R.id.btnchoose);
+        listls = new ArrayList<>();
+        dao = new loaisachDAO(getContext());
+        listls = (ArrayList<loaisach>) dao.getLoaiPhim();
+        spnadapter = new loaiphimAdapter(getContext(),listls);
+        spn.setAdapter(spnadapter);
+        spn.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                mals = listls.get(position).getMaloai();
+                Toast.makeText(getContext(), "Chọn" + listls.get(position).getTenloai(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        choose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                galleryLauncher.launch(galleryIntent);
+
+
+            }
+        });
+        btnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //chuyên data sang bte
+                BitmapDrawable bitmapDrawable = (BitmapDrawable) imgHinh.getDrawable();
+                Bitmap bitmap = bitmapDrawable.getBitmap();
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100,stream);
+                if(edtTen.getText().toString().isEmpty()||edtgia.getText().toString().isEmpty()||editThoilg.getText().toString().isEmpty()){
+                    Toast.makeText(getContext(), "Vui lòng nhập đầy đủ", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                try {
+                    Float.parseFloat(edtgia.getText().toString());
+                }catch (Exception e){
+                    Toast.makeText(getContext(), "Vui lòng nhập số", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                byte[] hinh = stream.toByteArray();
+                String ten = edtTen.getText().toString();
+                Float gia = Float.parseFloat(edtgia.getText().toString());
+                int thoiLuong = Integer.parseInt(editThoilg.getText().toString());
+
+                Phim phim = new Phim(hinh,ten,gia,thoiLuong,mals);
+
+
+                if(Pdao.themPhim(phim)){
+                    Toast.makeText(getContext(), "thêm tc", Toast.LENGTH_SHORT).show();
+                    listp.clear();
+                    listp.addAll(Pdao.getPhim());
+                    adapter.notifyDataSetChanged();
+                    dialog.dismiss();
+
+
+                }
+            }
+        });
+
+
+
+
+    }
+    public  void loadlist(){
+        listp.clear();
+        listp.addAll(Pdao.getPhim());
+        adapter = new PhimAdapter(requireContext(), listp);
+        rcv.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (dialog != null && dialog.isShowing()) {
+            dialog.dismiss();
+        }
+
     }
 }

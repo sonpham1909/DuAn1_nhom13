@@ -22,32 +22,6 @@ public class MainActivity extends AppCompatActivity {
         String loginsc = sharedPreferences.getString("user","");
 
 
-        if (loginsc.equals("")) {
-
-
-
-
-        }else{
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Đang load...!");
-            builder.setMessage("Đang đăng nhập");
-            builder.create().show();
-
-            try {
-
-                Thread.sleep(1000); // Chờ đợi 1 giây (1000 mili giây)
-
-
-                String user = sharedPreferences.getString("user", "");
-
-                Intent intent1 = new Intent(MainActivity.this, home.class);
-
-                startActivity(intent1.putExtra("username", user));
-                finish();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
             btnget.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

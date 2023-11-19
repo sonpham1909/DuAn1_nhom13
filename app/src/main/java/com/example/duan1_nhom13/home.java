@@ -58,9 +58,9 @@ public class home extends AppCompatActivity {
         ActionBar actionBar  = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.menu);
-        actionBar.setSubtitle("Quản lý loại phim");
+        actionBar.setSubtitle("Quản lý phim");
         actionBar.setTitle("SpecTraFlix");
-        fragment = new frg_qllPhim();
+        fragment = new Frg_qlPhim();
         replace(fragment);
         navigationView.invalidate();
         headerview = navigationView.getHeaderView(0);
