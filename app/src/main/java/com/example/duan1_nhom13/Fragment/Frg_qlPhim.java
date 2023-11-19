@@ -174,6 +174,7 @@ public class Frg_qlPhim extends Fragment {
         EditText editThoilg= view.findViewById(R.id.edtthoiluong);
         Button btnButton = view.findViewById(R.id.btnaddphim);
         Button choose = view.findViewById(R.id.btnchoose);
+        Button btncancle = view.findViewById(R.id.btnhuy);
         listls = new ArrayList<>();
         dao = new loaisachDAO(getContext());
         listls = (ArrayList<loaisach>) dao.getLoaiPhim();
@@ -198,6 +199,12 @@ public class Frg_qlPhim extends Fragment {
                 galleryLauncher.launch(galleryIntent);
 
 
+            }
+        });
+        btncancle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
             }
         });
         btnButton.setOnClickListener(new View.OnClickListener() {

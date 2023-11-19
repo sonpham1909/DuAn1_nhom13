@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:gravity="center"
+    android:padding="10dp"
     android:layout_height="match_parent">
     <ImageView
         android:layout_width="200dp"
@@ -14,30 +15,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Choose image"
+        android:backgroundTint="@color/black"
         android:id="@+id/btnchoose"/>
     <Spinner
+        android:background="@drawable/bredittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/spnloaisach"
         />
     <EditText
+        android:background="@drawable/bredittext"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+  android:layout_marginTop="10dp"
         android:hint="Nhập tên phim"
+        android:padding="10dp"
+        android:layout_height="40dp"
         android:id="@+id/edttenPhim"
         />
     <EditText
+        android:background="@drawable/bredittext"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:hint="Nhập giá vé"
         android:id="@+id/edtGiave"
-
+        android:layout_height="40dp"
+        android:padding="10dp"
         android:inputType="number"
         />
     <EditText
+        android:background="@drawable/bredittext"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
         android:hint="Nhập thời lượng"
+        android:padding="10dp"
 
         android:inputType="number"
         android:id="@+id/edtthoiluong"
@@ -46,17 +57,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Thêm phim"
             android:id="@+id/btnaddphim"
+            android:backgroundTint="@color/black"
             android:layout_marginRight="50dp"/>
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Hủy"
+            android:backgroundTint="#F44336"
             android:id="@+id/btnhuy"/>
     </LinearLayout>
 
