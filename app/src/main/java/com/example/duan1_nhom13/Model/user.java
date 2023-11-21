@@ -6,6 +6,24 @@ public class user {
     private String pass;
     private int role;
 
+    public String getSodienthoai() {
+        return sodienthoai;
+    }
+
+    public void setSodienthoai(String sodienthoai) {
+        this.sodienthoai = sodienthoai;
+    }
+
+    public user(String user, String ten, String pass, int role, String sodienthoai) {
+        this.user = user;
+        this.ten = ten;
+        this.pass = pass;
+        this.role = role;
+        this.sodienthoai = sodienthoai;
+    }
+
+    private String sodienthoai;
+
     public user() {
     }
 

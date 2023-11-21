@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 public class dbhelper extends SQLiteOpenHelper {
 
     public dbhelper(@Nullable Context context) {
-        super(context, "QLRP", null, 7);
+        super(context, "QLRP", null, 8);
     }
 
     @Override
@@ -19,9 +19,10 @@ public class dbhelper extends SQLiteOpenHelper {
                 "user text primary key," +
                 "tenuser text," +
                 "role integer," +
-                "pass text)";
+                "pass text," +
+                "sodienthoai text)";
         db.execSQL(tb_qly);
-        db.execSQL("insert into user values('admin','Nguyen Van Phao',1,'admin'),('son123','Phạm Văn Sơn',2,'son123')");
+        db.execSQL("insert into user values('admin','Nguyen Van Phao',1,'admin','0936965250'),('son123','Phạm Văn Sơn',2,'son123','035897802')");
         String tb_loaiphim = "create table loaiphim(" +
                 "maloai integer primary key autoincrement," +
                 "tenloai text)";

@@ -31,9 +31,6 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
 
 
-                    ObjectAnimator animator = ObjectAnimator.ofFloat(btnget, "translationY", btnget.getHeight(), 0);
-                    animator.setDuration(500);
-                    animator.start();
                 }
             });
         }

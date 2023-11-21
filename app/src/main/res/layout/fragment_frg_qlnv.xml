@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Frg_qlnv">
+    tools:context=".Fragment.Frg_qlnv">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

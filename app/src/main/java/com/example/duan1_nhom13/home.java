@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.SearchManager;
@@ -32,9 +31,9 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.duan1_nhom13.Adapter.LPAdapter;
 import com.example.duan1_nhom13.DAO.adminDAO;
 import com.example.duan1_nhom13.Fragment.Frg_qlPhim;
+import com.example.duan1_nhom13.Fragment.Frg_qlnv;
 import com.example.duan1_nhom13.Fragment.frg_qllPhim;
 import com.example.duan1_nhom13.Model.user;
 import com.google.android.material.navigation.NavigationView;
