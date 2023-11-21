@@ -61,7 +61,7 @@
             <item
                 android:id="@+id/add_user"
                 android:icon="@drawable/movie"
-                android:title="Tạo tài khoản mới" />
+                android:title="Quản lý nhân viên" />
         </menu>
     </item>
 

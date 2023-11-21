@@ -50,4 +50,26 @@ public class phimDAO {
 
 
     }
+    public boolean suaPhim(Phim phim){
+        SQLiteDatabase db= dbhelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put("image",phim.getAnh());
+        values.put("tenPhim",phim.getTen());
+        values.put("giave",phim.getGia());
+        values.put("thoiluong",phim.getThoiluong());
+        values.put("maloai",phim.getMaloai());
+        long row = db.update("phim",values,"maPhim = ?",new String[]{String.valueOf(phim.getMaPhim())});
+        return (row>0);
+
+
+
+    }
+
+    public boolean del(int id){
+        SQLiteDatabase db= dbhelper.getWritableDatabase();
+        long row = db.delete("phim","maPhim=?",new String[]{String.valueOf(id)});
+        return (row>0);
+
+    }
 }

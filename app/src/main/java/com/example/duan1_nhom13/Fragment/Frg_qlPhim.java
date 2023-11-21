@@ -49,8 +49,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 
-public class Frg_qlPhim extends Fragment {
-    private static int REQUEST_CODE_CAMERA = 123;
+public class Frg_qlPhim extends Fragment{
+
     RecyclerView rcv;
     FloatingActionButton fltbtn;
 
@@ -60,13 +60,15 @@ public class Frg_qlPhim extends Fragment {
     int mals;
     loaisachDAO dao;
     loaiphimAdapter spnadapter;
-    private int REQUEST_CODE_FOLDER=123;
-    private ActivityResultLauncher<Intent> cameraLauncher;
+
+
     private ActivityResultLauncher<Intent> galleryLauncher;
     ImageView imgHinh;
     phimDAO Pdao;
 
-    PhimAdapter adapter;
+
+    private PhimAdapter adapter;
+
 
 
     public Frg_qlPhim() {
@@ -86,13 +88,21 @@ public class Frg_qlPhim extends Fragment {
                             InputStream inputStream = requireActivity().getContentResolver().openInputStream(uri);
                             Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
                             imgHinh.setImageBitmap(bitmap);
+                            Intent data = result.getData();
+
+
                         } catch (FileNotFoundException e) {
                             throw new RuntimeException(e);
                         }
                     }
                 });
+        PhimAdapter adapter = new PhimAdapter(getContext(), listp);
+
 
     }
+
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -147,6 +157,7 @@ public class Frg_qlPhim extends Fragment {
             @Override
             public void onClick(View v) {
                 them();
+                loadlist();
 
             }
         });
@@ -269,4 +280,6 @@ public class Frg_qlPhim extends Fragment {
         }
 
     }
+
+
 }

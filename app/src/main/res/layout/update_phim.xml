@@ -1,6 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
     android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mã phim: 1"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#F44336"
+        android:id="@+id/tvmaP"
+        android:layout_marginBottom="10dp"
+        />
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:id="@+id/imgphimu"
+        android:src="@drawable/th"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose image"
+        android:backgroundTint="@color/black"
+        android:id="@+id/btnchooseu"/>
+    <Spinner
+        android:background="@drawable/bredittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spnloaisachu"
+        />
+    <EditText
+        android:background="@drawable/bredittext"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:hint="Nhập tên phim"
+        android:padding="10dp"
+        android:layout_height="40dp"
+        android:id="@+id/edttenPhimu"
+        />
+    <EditText
+        android:background="@drawable/bredittext"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:hint="Nhập giá vé"
+        android:id="@+id/edtGiaveu"
+        android:layout_height="40dp"
+        android:padding="10dp"
+        android:inputType="number"
+        />
+    <EditText
+        android:background="@drawable/bredittext"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:hint="Nhập thời lượng"
+        android:padding="10dp"
+
+        android:inputType="number"
+        android:id="@+id/edtthoiluongu"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Sửa"
+            android:id="@+id/btnsuaphimu"
+            android:backgroundTint="@color/black"
+            android:layout_marginRight="50dp"/>
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Xóa"
+            android:backgroundTint="#F44336"
+            android:id="@+id/btnxoau"/>
+    </LinearLayout>
+
 
 </LinearLayout>

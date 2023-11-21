@@ -2,20 +2,14 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-
     android:layout_height="match_parent"
-    tools:context=".Fragment.Frg_qlPhim">
+    tools:context=".Frg_qlnv">
     <RelativeLayout
-
         android:layout_width="match_parent"
-        android:background="@drawable/image43"
         android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcvPhim"
-
-
+            android:id="@+id/rcvNhanvien"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -27,7 +21,7 @@
             android:layout_marginEnd="0dp"
             android:layout_marginRight="0dp"
             android:layout_marginBottom="0dp"
-
+            android:background="@color/white"
             android:clipToPadding="false"
             android:overScrollMode="never"
             android:padding="0dp"
@@ -37,23 +31,21 @@
             android:scrollbarThumbVertical="@android:color/transparent"
             android:scrollbarTrackVertical="@android:color/transparent"
             android:scrollbars="vertical"
-            tools:listitem="@layout/item_phim" />
+            tools:listitem="@layout/item_qlnv" />
 
 
     </RelativeLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/add"
+        android:src="@drawable/addnv"
         android:backgroundTint="@color/white"
         android:background="@color/white"
-        android:id="@+id/btnaddPhim"
+        android:id="@+id/btnaddnv"
         android:layout_gravity="bottom|end"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         />
-
-
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

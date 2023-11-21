@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -25,9 +26,11 @@ import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.duan1_nhom13.Adapter.LPAdapter;
 import com.example.duan1_nhom13.DAO.adminDAO;
@@ -45,6 +48,7 @@ public class home extends AppCompatActivity {
     SearchView searchView;
     private SharedViewModel sharedViewModel;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +60,7 @@ public class home extends AppCompatActivity {
 
         setSupportActionBar(toolbar);
         ActionBar actionBar  = getSupportActionBar();
+
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.menu);
         actionBar.setSubtitle("Quản lý phim");
@@ -106,18 +111,33 @@ public class home extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                boolean tt = true;
 
 
               if(item.getItemId()==R.id.manager_movie){
                   fragment = new Frg_qlPhim();
                   actionBar.setSubtitle("Quản lý phim");
                   replace(fragment);
+                  tt =false;
 
               }else if(item.getItemId()==R.id.manager_category){
                   fragment = new frg_qllPhim();
                   actionBar.setSubtitle("Quản lý loại phim");
                   replace(fragment);
-              }else if(item.getItemId()==R.id.logout){
+                  tt =false;
+
+
+              }else if(item.getItemId()==R.id.add_user) {
+
+
+                          nxPass();
+
+
+
+              }
+              else if(item.getItemId()==R.id.logout){
+
+                  tt =false;
                   android.app.AlertDialog.Builder builder = new AlertDialog.Builder(navigationView.getContext());
                   builder.setIcon(R.drawable.exit);
                   builder.setTitle("Đăng xuất");
@@ -208,5 +228,58 @@ public class home extends AppCompatActivity {
 
 
         return false;
+    }
+    public void nxPass(){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.xnpass,null);
+        builder.setView(view);
+        Dialog dialog = builder.create();
+        dialog.show();
+
+        EditText edtxnpass = view.findViewById(R.id.edtpassxn);
+        Button btnxz = view.findViewById(R.id.btnxn);
+        Button btnkxz = view.findViewById(R.id.btnkxn);
+        btnxz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences sharedPreferences = getSharedPreferences("thongtin",MODE_PRIVATE);
+                String pass = sharedPreferences.getString("pass","");
+                if(edtxnpass.getText().toString().isEmpty()){
+                    Toast.makeText(home.this, "Không để trống", Toast.LENGTH_SHORT).show();
+                }else{
+                    if(edtxnpass.getText().toString().equals(pass)){
+                        fragment = new Frg_qlnv();
+
+
+                        ActionBar actionBar  = getSupportActionBar();
+
+                        actionBar.setDisplayHomeAsUpEnabled(true);
+                        actionBar.setHomeAsUpIndicator(R.drawable.menu);
+                        actionBar.setSubtitle("Quản lý nhân viên");
+                        actionBar.setTitle("SpecTraFlix");
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putBoolean("hh",true);
+                        editor.apply();
+
+
+
+                        replace(fragment);
+                        dialog.dismiss();
+
+
+                    }else{
+                        Toast.makeText(home.this, "Sai mật khẩu", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+        btnkxz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
     }
 }
