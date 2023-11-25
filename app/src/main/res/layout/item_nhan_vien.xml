@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cardNV"
     android:layout_width="match_parent"
-
-
     android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/brnhanvien"
-        android:padding="10dp"
-
         android:layout_margin="10dp"
+        android:background="@drawable/brnhanvien"
         android:gravity="center"
-
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="10dp">
 
         <LinearLayout
             android:layout_width="290dp"
             android:layout_height="wrap_content"
-
             android:orientation="vertical">
+
             <TextView
+                android:id="@+id/tvtenNhanvien"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvtenNhanvien"
                 android:text="Mã phim 1"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
+
             <TextView
+                android:id="@+id/tvSdt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvSdt"
                 android:text="Tên phim"
                 android:textSize="15sp"
 
                 />
 
         </LinearLayout>
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/tvrole"
-            android:text="Nhân viên"
-            android:textSize="10sp"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/nutnv"
-            android:textColor="@color/white"
+            android:gravity="center"
             android:padding="5dp"
+            android:text="Nhân viên"
+            android:textColor="@color/white"
+            android:textSize="10sp"
 
             />
 

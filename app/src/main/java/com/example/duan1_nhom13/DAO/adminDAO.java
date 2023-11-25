@@ -52,7 +52,7 @@ public class adminDAO {
         if(cursor.getCount()!= 0){
             cursor.moveToFirst();
             do {
-                list.add(new user(cursor.getString(0),cursor.getString(1),cursor.getString(2),cursor.getInt(3),cursor.getString(4)));
+                list.add(new user(cursor.getString(0),cursor.getString(1),cursor.getInt(2),cursor.getString(3),cursor.getString(4)));
             }while (cursor.moveToNext());
         }
         return list;

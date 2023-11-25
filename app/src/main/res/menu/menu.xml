@@ -2,6 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
+    <item android:title="Trang chủ">
+        <menu>
+            <item
+                android:id="@+id/home1"
+                android:icon="@drawable/baseline_home_24"
+                android:title="Mành hình chính"
+                />
+        </menu>
+
+    </item>
+
     <item android:title="Quản lý">
         <menu>
             <item

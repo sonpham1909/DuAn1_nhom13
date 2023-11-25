@@ -16,11 +16,13 @@
         android:layout_height="wrap_content"
         android:text="Choose image"
         android:backgroundTint="@color/black"
+        android:textColor="@color/white"
         android:id="@+id/btnchoose"/>
     <Spinner
         android:background="@drawable/bredittext"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_height="50dp"
         android:id="@+id/spnloaisach"
         />
     <EditText
@@ -29,6 +31,7 @@
   android:layout_marginTop="10dp"
         android:hint="Nhập tên phim"
         android:padding="10dp"
+        android:layout_margin="10dp"
         android:layout_height="40dp"
         android:id="@+id/edttenPhim"
         />
@@ -38,6 +41,7 @@
         android:layout_marginTop="10dp"
         android:hint="Nhập giá vé"
         android:id="@+id/edtGiave"
+        android:layout_margin="10dp"
         android:layout_height="40dp"
         android:padding="10dp"
         android:inputType="number"
@@ -49,7 +53,7 @@
         android:layout_marginTop="10dp"
         android:hint="Nhập thời lượng"
         android:padding="10dp"
-
+        android:layout_margin="10dp"
         android:inputType="number"
         android:id="@+id/edtthoiluong"
         />
@@ -65,10 +69,12 @@
             android:text="Thêm phim"
             android:id="@+id/btnaddphim"
             android:backgroundTint="@color/black"
+            android:textColor="@color/white"
             android:layout_marginRight="50dp"/>
         <Button
             android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:text="Hủy"
             android:backgroundTint="#F44336"
             android:id="@+id/btnhuy"/>

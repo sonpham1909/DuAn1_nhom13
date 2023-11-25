@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cardHD"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/brnhanvien"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvMaHoaDon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mã hóa đơn"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvNhanVien"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Mã nhân viên"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:id="@+id/tvSLVe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Số lượng vé"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tvTenPhim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Tên phim"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tvInHoaDon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Ngày in hóa đơn"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+        <Button
+            android:layout_margin="10dp"
+            android:id="@+id/btnthanhtoan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Đã thanh toán"
+            />
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

@@ -1,60 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:gravity="center"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:padding="10dp">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Thêm nhân viên"
-        android:textSize="30dp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
         android:layout_marginBottom="20dp"
+        android:text="Thêm nhân viên"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:textStyle="bold"
 
         />
 
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:orientation="vertical">
-      <TextView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="Mã nhân viên(Tên đăng nhập)"
-          android:textSize="17dp"
-          />
-      <EditText
-          android:layout_marginTop="10dp"
-          android:layout_width="match_parent"
-          android:layout_height="40dp"
-          android:id="@+id/edtmanv"
-          android:padding="10dp"
-          android:background="@drawable/brnhanvien"
-
-          />
-
-
-  </LinearLayout>
     <LinearLayout
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tên nhân viên"
-            android:textSize="17dp"
-            />
+            android:text="Mã nhân viên(Tên đăng nhập)"
+            android:textSize="17dp" />
+
         <EditText
-            android:layout_marginTop="10dp"
+            android:id="@+id/edtmanv"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:id="@+id/edttennv"
+            android:layout_marginTop="10dp"
             android:background="@drawable/brnhanvien"
             android:padding="10dp"
 
@@ -62,31 +41,58 @@
 
 
     </LinearLayout>
+
     <LinearLayout
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên nhân viên"
+            android:textSize="17dp" />
+
+        <EditText
+            android:id="@+id/edttennv"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/brnhanvien"
+            android:padding="10dp"
+
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Mật khẩu"
-            android:textSize="17dp"
-            />
+            android:textSize="17dp" />
+
         <com.google.android.material.textfield.TextInputLayout
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:passwordToggleEnabled="true"
-            >
+            app:passwordToggleEnabled="true">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtpass"
                 android:layout_width="match_parent"
-                android:background="@drawable/brnhanvien"
                 android:layout_height="40dp"
+                android:background="@drawable/brnhanvien"
                 android:inputType="textPassword"
-                android:padding="10dp"
                 android:maxLines="1"
+                android:padding="10dp"
 
                 />
 
@@ -95,80 +101,87 @@
 
 
     </LinearLayout>
+
     <LinearLayout
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Số điện thoại"
-            android:textSize="17dp"
-            />
+            android:textSize="17dp" />
+
         <EditText
-            android:layout_marginTop="10dp"
+            android:id="@+id/edtsdt"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:id="@+id/edtsdt"
-            android:inputType="number"
+            android:layout_marginTop="10dp"
             android:background="@drawable/brnhanvien"
+            android:inputType="number"
             android:padding="10dp"
 
             />
 
 
     </LinearLayout>
+
     <LinearLayout
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Chức vụ"
-            android:textSize="17dp"
-            />
+            android:textSize="17dp" />
+
         <EditText
-            android:layout_marginTop="10dp"
+            android:id="@+id/edtchucvu"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:id="@+id/edtchucvu"
+            android:layout_marginTop="10dp"
             android:background="@drawable/brnhanvien"
-            android:text="Nhân viên"
-            android:drawableEnd="@drawable/role"
-            android:padding="10dp"
-            android:cursorVisible="false"
             android:clickable="true"
+            android:cursorVisible="false"
+            android:drawableEnd="@drawable/role"
             android:focusable="false"
             android:inputType="text"
+            android:padding="10dp"
+            android:text="Nhân viên"
 
             />
 
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginTop="40dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <Button
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="Thêm"
-            android:backgroundTint="@color/black"
             android:id="@+id/btnaddnv"
-            android:layout_marginRight="100dp"
-            />
-        <Button
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="Hủy"
+            android:layout_marginRight="100dp"
             android:backgroundTint="@color/black"
+            android:textColor="@color/white"
+            android:text="Thêm" />
+
+        <Button
             android:id="@+id/btnhuynv"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/black"
+            android:textColor="@color/white"
+            android:text="Hủy"
 
             />
 

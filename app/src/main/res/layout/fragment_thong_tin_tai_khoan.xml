@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.thong_tin_tai_khoan">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:gravity="center"
+      android:background="@drawable/image43"
+    android:orientation="vertical">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+      android:src="@drawable/image75"
+      />
+  <LinearLayout
+      android:padding="15dp"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Họ Tên: "
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:id="@+id/HOTEN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phạm Văn Sơn"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
+
+  </LinearLayout>
+    <LinearLayout
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Tên ĐN: "
+          android:textSize="20sp"
+          android:textStyle="bold"
+          />
+      <TextView
+          android:id="@+id/TENDN"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Phạm Văn Sơn"
+          android:textSize="20sp"
+          android:textStyle="bold"
+          />
+
+    </LinearLayout>
+    <LinearLayout
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+      <TextView
+
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Chức vụ: "
+          android:textSize="20sp"
+          android:textStyle="bold"
+          />
+      <TextView
+          android:id="@+id/CHUCVU"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Phạm Văn Sơn"
+          android:textSize="20sp"
+          android:textStyle="bold"
+          />
+
+    </LinearLayout>
+  </LinearLayout>
+
+</FrameLayout>

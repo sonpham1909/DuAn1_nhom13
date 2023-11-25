@@ -28,13 +28,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.duan1_nhom13.DAO.adminDAO;
-import com.example.duan1_nhom13.Fragment.Frg_qlPhim;
-import com.example.duan1_nhom13.Fragment.Frg_qlnv;
-import com.example.duan1_nhom13.Fragment.frg_qllPhim;
+import com.example.duan1_nhom13.Fragment.Quan_ly_hoa_don;
+import com.example.duan1_nhom13.Fragment.Quan_ly_khach_hang;
+import com.example.duan1_nhom13.Fragment.man_hinh_chinh;
+import com.example.duan1_nhom13.Fragment.quan_ly_phim;
+import com.example.duan1_nhom13.Fragment.quan_ly_nhan_vien;
+import com.example.duan1_nhom13.Fragment.quan_ly_loai_phim;
+import com.example.duan1_nhom13.Fragment.quan_ly_phong_chieu;
+import com.example.duan1_nhom13.Fragment.quan_ly_suat_chieu;
+import com.example.duan1_nhom13.Fragment.thong_tin_tai_khoan;
 import com.example.duan1_nhom13.Model.user;
 import com.google.android.material.navigation.NavigationView;
 
@@ -62,9 +69,9 @@ public class home extends AppCompatActivity {
 
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.menu);
-        actionBar.setSubtitle("Quản lý phim");
+        actionBar.setSubtitle("Màn hình chính");
         actionBar.setTitle("SpecTraFlix");
-        fragment = new Frg_qlPhim();
+        fragment = new man_hinh_chinh();
         replace(fragment);
         navigationView.invalidate();
         headerview = navigationView.getHeaderView(0);
@@ -90,6 +97,7 @@ public class home extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("role",MODE_PRIVATE);
         SharedPreferences.Editor editor =preferences.edit();
         editor.putInt("role",us.getRole());
+        editor.putString("fullname",us.getTen());
         editor.commit();
 
         if(us.getRole()==1){
@@ -114,26 +122,54 @@ public class home extends AppCompatActivity {
 
 
               if(item.getItemId()==R.id.manager_movie){
-                  fragment = new Frg_qlPhim();
+                  fragment = new quan_ly_phim();
                   actionBar.setSubtitle("Quản lý phim");
                   replace(fragment);
                   tt =false;
 
               }else if(item.getItemId()==R.id.manager_category){
-                  fragment = new frg_qllPhim();
+                  fragment = new quan_ly_loai_phim();
                   actionBar.setSubtitle("Quản lý loại phim");
                   replace(fragment);
                   tt =false;
 
 
-              }else if(item.getItemId()==R.id.add_user) {
+              }else if(item.getItemId()==R.id.manager_SC) {
+                  fragment = new quan_ly_suat_chieu();
+                  actionBar.setSubtitle("Quản lý suất chiếu");
+                  replace(fragment);
+              }else if(item.getItemId()==R.id.user_profile) {
+                  fragment = new thong_tin_tai_khoan();
+                  actionBar.setSubtitle("Thông tin tài khoản");
+                  replace(fragment);
+              } else if(item.getItemId()==R.id.manager_user) {
+                  fragment = new Quan_ly_khach_hang();
+                  actionBar.setSubtitle("Quản lý khách hàng");
+                  replace(fragment);
+              }
+              else if(item.getItemId()==R.id.add_user) {
 
 
                           nxPass();
 
 
 
+              }else if(item.getItemId()==R.id.home1){
+                  fragment = new man_hinh_chinh();
+                  actionBar.setSubtitle("Màn hình chính");
+                  replace(fragment);
               }
+              else if(item.getItemId()==R.id.manager_bill){
+                  fragment = new Quan_ly_hoa_don();
+                  actionBar.setSubtitle("Quản lý hóa đơn");
+                  replace(fragment);
+              }
+              else if(item.getItemId()==R.id.manager_PC){
+                  fragment = new quan_ly_phong_chieu();
+                  actionBar.setSubtitle("Quản lý phòng chiếu");
+                  replace(fragment);
+
+                }
               else if(item.getItemId()==R.id.logout){
 
                   tt =false;
@@ -196,6 +232,10 @@ public class home extends AppCompatActivity {
         SpannableString spannableString = new SpannableString("Search");
         spannableString.setSpan(new ForegroundColorSpan(color), 0, spannableString.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         searchView.setQueryHint(spannableString);
+        ImageView closeButton = searchView.findViewById(androidx.appcompat.R.id.search_close_btn);
+        closeButton.setColorFilter(color);
+        ImageView backButton = searchView.findViewById(androidx.appcompat.R.id.search_mag_icon);
+        backButton.setColorFilter(color);
 
 
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
@@ -226,7 +266,7 @@ public class home extends AppCompatActivity {
 
 
 
-        return false;
+        return true;
     }
     public void nxPass(){
 
@@ -248,7 +288,7 @@ public class home extends AppCompatActivity {
                     Toast.makeText(home.this, "Không để trống", Toast.LENGTH_SHORT).show();
                 }else{
                     if(edtxnpass.getText().toString().equals(pass)){
-                        fragment = new Frg_qlnv();
+                        fragment = new quan_ly_nhan_vien();
 
 
                         ActionBar actionBar  = getSupportActionBar();
@@ -281,4 +321,8 @@ public class home extends AppCompatActivity {
         });
 
     }
+    public int getFragmentContainerId() {
+        return R.id.Framelayout;
+    }
+
 }

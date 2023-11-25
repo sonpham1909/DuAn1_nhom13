@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.Frg_qlnv">
+    tools:context=".Fragment.quan_ly_suat_chieu">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcvNhanvien"
+            android:id="@+id/rcvSustCHieu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -31,21 +32,20 @@
             android:scrollbarThumbVertical="@android:color/transparent"
             android:scrollbarTrackVertical="@android:color/transparent"
             android:scrollbars="vertical"
-            tools:listitem="@layout/item_qlnv" />
+            tools:listitem="@layout/item_suat_chieu" />
 
 
     </RelativeLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/addnv"
+        android:src="@drawable/add"
         android:backgroundTint="@color/white"
         android:background="@color/white"
-        android:id="@+id/btnaddnv"
+        android:id="@+id/btnaddsc"
         android:layout_gravity="bottom|end"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         />
 
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</FrameLayout>

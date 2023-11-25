@@ -11,10 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -51,7 +48,7 @@ public class LPAdapter extends RecyclerView.Adapter<LPAdapter.Viewholder>{
     @Override
     public Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = ((Activity)context).getLayoutInflater();
-        View view = inflater.inflate(R.layout.item_loaisach,null);
+        View view = inflater.inflate(R.layout.item_the_loai_phim,null);
         return new  Viewholder(view);
     }
 
@@ -138,7 +135,7 @@ public class LPAdapter extends RecyclerView.Adapter<LPAdapter.Viewholder>{
     public void udLoaiPhim(loaisach ls){
         AlertDialog.Builder builder  = new AlertDialog.Builder(context);
         LayoutInflater inflater = ((Activity)context).getLayoutInflater();
-        View view =  inflater.inflate(R.layout.edit_lp,null);
+        View view =  inflater.inflate(R.layout.edit_loai_phim,null);
         builder.setView(view);
         Dialog dialog = builder.create();
         dialog.show();
@@ -192,7 +189,7 @@ public class LPAdapter extends RecyclerView.Adapter<LPAdapter.Viewholder>{
 
         AlertDialog.Builder builder  = new AlertDialog.Builder(context);
         LayoutInflater inflater = ((Activity)context).getLayoutInflater();
-        View view =  inflater.inflate(R.layout.delete_lp,null);
+        View view =  inflater.inflate(R.layout.delete_loai_phim,null);
         builder.setView(view);
         Dialog dialog = builder.create();
         dialog.show();

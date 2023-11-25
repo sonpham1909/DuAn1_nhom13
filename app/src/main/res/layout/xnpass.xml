@@ -52,10 +52,12 @@
             android:text="Xác nhận"
             android:backgroundTint="@color/black"
             android:layout_marginRight="100dp"
+            android:textColor="@color/white"
             android:id="@+id/btnxn"
             />
         <Button
             android:layout_width="120dp"
+            android:textColor="@color/white"
             android:layout_height="wrap_content"
             android:text="Hủy"
             android:backgroundTint="#F44336"

@@ -1,17 +1,14 @@
 package com.example.duan1_nhom13.Adapter;
 
-import static android.app.Activity.RESULT_OK;
-import static androidx.core.app.ActivityCompat.startActivityForResult;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +22,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,8 +33,6 @@ import com.example.duan1_nhom13.Model.loaisach;
 import com.example.duan1_nhom13.R;
 import com.example.duan1_nhom13.spinerAdapter.loaiphimAdapter;
 
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 public class PhimAdapter extends RecyclerView.Adapter<PhimAdapter.Viewholder> {
@@ -109,14 +103,34 @@ if(phim == null){
 
 
     //xl cardview
-    holder.card.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            updateanddel(phim);
+
+    SharedPreferences preferences = context.getSharedPreferences("role", Context.MODE_PRIVATE);
+    int role = preferences.getInt("role",1);
+    if (role==1){
+        holder.card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateanddel(phim);
 
 
-        }
-    });
+            }
+        });
+    }else{
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setIcon(R.drawable.baseline_warning_amber_24);
+
+        builder.setMessage("Nhân viên chỉ được xem danh sách!");
+
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        Dialog dialog = builder.create();
+        dialog.show();
+    }
 
 
 }
@@ -150,7 +164,7 @@ if(phim == null){
     public void updateanddel(Phim phim){
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         LayoutInflater inflater = ((Activity)context).getLayoutInflater();
-        View view = inflater.inflate(R.layout.update_phim,null);
+        View view = inflater.inflate(R.layout.edit_phim,null);
         builder.setView(view);
         Dialog dialog= builder.create();
         dialog.show();
@@ -249,7 +263,7 @@ if(phim == null){
             public void onClick(View v) {
                 AlertDialog.Builder builder1 = new AlertDialog.Builder(context);
                 LayoutInflater layoutInflater = ((Activity) context).getLayoutInflater();
-                View view1 = layoutInflater.inflate(R.layout.delete_lp, null);
+                View view1 = layoutInflater.inflate(R.layout.delete_loai_phim, null);
                 builder1.setView(view1);
                 Dialog dialog1 = builder1.create();
                 dialog1.show();

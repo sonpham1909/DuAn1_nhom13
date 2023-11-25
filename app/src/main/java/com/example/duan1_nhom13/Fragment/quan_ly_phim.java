@@ -2,7 +2,9 @@ package com.example.duan1_nhom13.Fragment;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -17,7 +19,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.provider.MediaStore;
@@ -32,7 +33,6 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.duan1_nhom13.Adapter.LPAdapter;
 import com.example.duan1_nhom13.Adapter.PhimAdapter;
 import com.example.duan1_nhom13.DAO.loaisachDAO;
 import com.example.duan1_nhom13.DAO.phimDAO;
@@ -49,7 +49,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 
-public class Frg_qlPhim extends Fragment{
+public class quan_ly_phim extends Fragment{
 
     RecyclerView rcv;
     FloatingActionButton fltbtn;
@@ -71,7 +71,7 @@ public class Frg_qlPhim extends Fragment{
 
 
 
-    public Frg_qlPhim() {
+    public quan_ly_phim() {
 
         // Required empty public constructor
     }
@@ -107,7 +107,7 @@ public class Frg_qlPhim extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_frg_ql_phim, container, false);
+        View view = inflater.inflate(R.layout.fragment_quan_ly_phim, container, false);
         // Inflate the layout for this fragment
         // Inflate the layout for this fragment
         rcv = view.findViewById(R.id.rcvPhim);
@@ -161,6 +161,13 @@ public class Frg_qlPhim extends Fragment{
 
             }
         });
+        SharedPreferences preferences = getContext().getSharedPreferences("role", Context.MODE_PRIVATE);
+        int role = preferences.getInt("role",1);
+        if (role==1){
+            fltbtn.setVisibility(View.VISIBLE);
+        }else{
+            fltbtn.setVisibility(View.GONE);
+        }
 
 
 

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SỬA PHÒNG CHIẾU"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:textColor="@color/black"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mã phòng chiếu"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"/>
+        <EditText
+            android:id="@+id/edMaPhongChieu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/brnhanvien"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:cursorVisible="false"
+            android:clickable="true"
+            android:focusable="false"
+            android:gravity="center"
+            android:inputType="text"
+            android:layout_marginHorizontal="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên phòng chiếu"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"/>
+        <EditText
+            android:id="@+id/edTenPhongChieuu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/brnhanvien"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Số lượng ghế"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"/>
+        <EditText
+            android:id="@+id/edSoLuongGheu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/brnhanvien"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:padding="20dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnEditPC"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="CẬP NHẬT"
+            android:textColor="@color/white"
+            android:layout_marginHorizontal="40dp"
+            android:background="@drawable/vien"
+            android:layout_marginTop="10dp"/>
+        <Button
+            android:id="@+id/btnDeletePC"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="XÓA"
+            android:textColor="@color/white"
+            android:layout_marginHorizontal="40dp"
+            android:background="@drawable/vien"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+</LinearLayout>

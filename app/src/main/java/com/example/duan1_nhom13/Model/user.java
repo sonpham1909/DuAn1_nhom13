@@ -14,11 +14,12 @@ public class user {
         this.sodienthoai = sodienthoai;
     }
 
-    public user(String user, String ten, String pass, int role, String sodienthoai) {
+    public user(String user, String ten, int role, String pass, String sodienthoai) {
         this.user = user;
         this.ten = ten;
-        this.pass = pass;
         this.role = role;
+        this.pass = pass;
+
         this.sodienthoai = sodienthoai;
     }
 

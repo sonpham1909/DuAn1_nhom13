@@ -25,12 +25,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Choose image"
-        android:backgroundTint="@color/black"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/vien"
         android:id="@+id/btnchooseu"/>
     <Spinner
         android:background="@drawable/bredittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:id="@+id/spnloaisachu"
         />
     <EditText
@@ -63,26 +65,34 @@
         android:inputType="number"
         android:id="@+id/edtthoiluongu"
         />
+
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:gravity="center"
-        android:layout_marginTop="10dp"
+        android:padding="20dp"
         android:orientation="horizontal">
-        <Button
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="Sửa"
-            android:id="@+id/btnsuaphimu"
-            android:backgroundTint="@color/black"
-            android:layout_marginRight="50dp"/>
-        <Button
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="Xóa"
-            android:backgroundTint="#F44336"
-            android:id="@+id/btnxoau"/>
-    </LinearLayout>
 
+        <Button
+            android:id="@+id/btnsuaphimu"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="CẬP NHẬT"
+            android:textSize="20dp"
+            android:layout_marginHorizontal="40dp"
+            android:background="@drawable/vien"
+            android:layout_marginTop="10dp"/>
+        <Button
+            android:id="@+id/btnxoau"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="XÓA"
+            android:textSize="20dp"
+            android:layout_marginHorizontal="40dp"
+            android:background="@drawable/vien"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
 
 </LinearLayout>

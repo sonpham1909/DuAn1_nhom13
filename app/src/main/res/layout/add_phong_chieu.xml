@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="THÊM PHÒNG CHIẾU"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:textColor="@color/black"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên phòng chiếu"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"/>
+        <EditText
+            android:id="@+id/edTenPhongChieu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/brnhanvien"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Số lượng ghế"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"/>
+        <EditText
+            android:id="@+id/edSoLuongGhe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/brnhanvien"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:padding="20dp"
+        android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/btnAddPC"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="THÊM"
+        android:layout_marginHorizontal="40dp"
+        android:background="@drawable/vien"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"/>
+    <Button
+        android:id="@+id/btnHuyPC"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="HỦY"
+        android:inputType="number"
+        android:layout_marginHorizontal="40dp"
+        android:textColor="@color/white"
+        android:background="@drawable/vien"
+        android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+</LinearLayout>

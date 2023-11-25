@@ -5,19 +5,15 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -30,11 +26,10 @@ import com.example.duan1_nhom13.Model.loaisach;
 import com.example.duan1_nhom13.R;
 import com.example.duan1_nhom13.SharedViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
-public class frg_qllPhim extends Fragment {
+public class quan_ly_loai_phim extends Fragment {
     RecyclerView rcv;
     ArrayList<loaisach> list;
     LPAdapter adapter;
@@ -46,14 +41,14 @@ public class frg_qllPhim extends Fragment {
 
 
 
-    public frg_qllPhim() {
+    public quan_ly_loai_phim() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_frg_qll_phim, container, false);
+        View view = inflater.inflate(R.layout.fragment_quan_ly_loai_phim, container, false);
         // Inflate the layout for this fragment
         rcv = view.findViewById(R.id.rcvLoaiphim);
         fltbtn = view.findViewById(R.id.btnaddlp);
@@ -115,7 +110,7 @@ public class frg_qllPhim extends Fragment {
     }
     public void themLoaiphim(){
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        View view = getLayoutInflater().inflate(R.layout.add_lp,null);
+        View view = getLayoutInflater().inflate(R.layout.add_loai_phim,null);
         builder.setView(view);
         Dialog dialog =builder.create();
         dialog.show();

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:layout_height="match_parent">
+   <LinearLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:id="@+id/lnTTnv"
+       android:orientation="horizontal">
+       <ImageView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:src="@drawable/back"
+           />
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Thông tin nhân viên"
+           android:textSize="18dp"
+           />
+   </LinearLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/image75"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        />
+  <LinearLayout
+      android:layout_marginTop="30dp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:orientation="vertical">
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="20dp"
+          android:orientation="horizontal">
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Họ tên: "
+              android:textSize="18dp"
+              android:layout_marginRight="50dp"
+
+              />
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Phạm Văn Sơn"
+              android:textSize="18dp"
+              android:layout_marginRight="50dp"
+              android:id="@+id/txthoten"
+
+              />
+
+      </LinearLayout>
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="20dp"
+          android:orientation="horizontal">
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Tên DN(Mã NV): "
+              android:textSize="18dp"
+              android:layout_marginRight="50dp"
+
+              />
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="admin"
+              android:textSize="14dp"
+              android:layout_marginRight="50dp"
+              android:id="@+id/txttendangnhap"
+
+              />
+
+      </LinearLayout>
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="20dp"
+          android:orientation="horizontal">
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Mật khẩu: "
+              android:textSize="18dp"
+              android:layout_marginRight="50dp"
+
+              />
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="admin"
+              android:textSize="14dp"
+              android:layout_marginRight="50dp"
+              android:id="@+id/txtmatkhau"
+
+              />
+
+      </LinearLayout>
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="20dp"
+          android:orientation="horizontal">
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Chức vụ: "
+              android:textSize="18dp"
+              android:layout_marginRight="50dp"
+
+              />
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Quản lý"
+              android:textSize="18dp"
+              android:layout_marginRight="50dp"
+              android:id="@+id/txtChucVu"
+
+              />
+
+      </LinearLayout>
+      <LinearLayout
+          android:gravity=""
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="20dp"
+          android:orientation="horizontal">
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="SDT: "
+              android:textSize="18dp"
+              android:layout_marginRight="50dp"
+
+              />
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="0345678942"
+              android:textSize="18dp"
+              android:layout_marginRight="50dp"
+              android:id="@+id/txtSDT"
+
+              />
+
+      </LinearLayout>
+  </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/tvsuanv"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="CẬP NHẬT"
+            android:textSize="20dp"
+            android:layout_marginHorizontal="40dp"
+            android:textColor="@color/white"
+            android:background="@drawable/vien"
+            android:layout_marginTop="10dp"/>
+        <Button
+            android:id="@+id/tvxoanv"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="XÓA"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:layout_marginHorizontal="40dp"
+            android:background="@drawable/vien"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
