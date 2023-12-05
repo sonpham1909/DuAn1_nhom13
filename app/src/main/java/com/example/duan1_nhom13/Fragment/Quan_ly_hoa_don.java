@@ -2,10 +2,7 @@ package com.example.duan1_nhom13.Fragment;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AlertDialog;
@@ -13,7 +10,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -27,25 +23,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.duan1_nhom13.Adapter.HD_Adapter;
-import com.example.duan1_nhom13.Adapter.PhimAdapter;
 import com.example.duan1_nhom13.DAO.HDDAO;
 import com.example.duan1_nhom13.DAO.KHDAO;
-import com.example.duan1_nhom13.DAO.loaisachDAO;
 import com.example.duan1_nhom13.DAO.phimDAO;
+import com.example.duan1_nhom13.DAO.phongchieuDAO;
 import com.example.duan1_nhom13.DAO.suatchieuDAO;
 import com.example.duan1_nhom13.Model.Phim;
 import com.example.duan1_nhom13.Model.hoadon;
 import com.example.duan1_nhom13.Model.khachhang;
-import com.example.duan1_nhom13.Model.loaisach;
+import com.example.duan1_nhom13.Model.phonchieu;
 import com.example.duan1_nhom13.Model.suatchieu;
 import com.example.duan1_nhom13.R;
 import com.example.duan1_nhom13.spinerAdapter.kh_spinner;
-import com.example.duan1_nhom13.spinerAdapter.loaiphimAdapter;
 import com.example.duan1_nhom13.spinerAdapter.phim_spinner;
 import com.example.duan1_nhom13.spinerAdapter.sc_spinner;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -56,12 +49,14 @@ public class Quan_ly_hoa_don extends Fragment {
     ArrayList<hoadon> list = new ArrayList<>();
     hoadon hd;
     HD_Adapter adapter;
+    int sg;
     HDDAO hddao;
     ArrayList<khachhang> listkh;
     ArrayList<Phim> listp;
     ArrayList<suatchieu> listsc;
     phimDAO pdao;
     suatchieuDAO scdao;
+    String gioChieu1;
     KHDAO khdao;
     phim_spinner adapterphimspn;
 
@@ -69,6 +64,8 @@ public class Quan_ly_hoa_don extends Fragment {
     sc_spinner adapterscspn;
     int maphim,masc,makh;
     float giave;
+    int socl;
+    int idpc;
 
 
 
@@ -116,14 +113,17 @@ public class Quan_ly_hoa_don extends Fragment {
         EditText edtNv = view.findViewById(R.id.edMaNhanVien);
         EditText edngayin= view.findViewById(R.id.edNgayInHoaDon);
         TextView tvtongtien = view.findViewById(R.id.tvTongtienadd);
+        TextView tvSGhe = view.findViewById(R.id.tv_soghe);
+         TextView gioChieu = view.findViewById(R.id.tv_giochieuHD);
         Button btnButton = view.findViewById(R.id.btnthemHD);
+
         SharedPreferences preferences = getContext().getSharedPreferences("thongtin", Context.MODE_PRIVATE);
         String user= preferences.getString("user","");
         edtNv.setText(user);
         // Lấy ngày giờ hiện tại
         Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String time = timeFormat.format(calendar.getTime());
         String date = dateFormat.format(calendar.getTime());
 
@@ -169,11 +169,20 @@ public class Quan_ly_hoa_don extends Fragment {
 
                         if (!input.isEmpty()) {
                             number = Integer.parseInt(input);
-                            float tongtien = number*giave;
+                            double tongtien =Double.parseDouble(String.valueOf(number*giave));
+                            socl = sg-number;
 
                             tvtongtien.setText(String.valueOf(tongtien));
+                            tvSGhe.setText("Số ghế còn lại: "+socl);
+                            if(socl<0){
+                                tvSGhe.setText("Số vé nhập không hợp lệ ! ");
+                                return;
+
+
+                            }
                         } else {
                             tvtongtien.setText("0");
+                            tvSGhe.setText("Số ghế còn lại là: "+sg);
                         }
 
                     }
@@ -210,10 +219,26 @@ public class Quan_ly_hoa_don extends Fragment {
         listsc = (ArrayList<suatchieu>) scdao.getSC();
         adapterscspn = new sc_spinner(getContext(),listsc);
         spnSC.setAdapter(adapterscspn);
+
         spnSC.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 masc = listsc.get(position).getMaSC();
+                gioChieu1 = listsc.get(position).getGiochieu();
+                phongchieuDAO pcdao= new phongchieuDAO(getContext());
+                idpc = listsc.get(position).getMaPC();
+
+                gioChieu.setText("Giờ chiếu: "+gioChieu1+" "+listsc.get(position).getNgaychieu());
+                ArrayList<phonchieu> listpc = pcdao.getsgPC(listsc.get(position).getMaPC());
+                phonchieu phongchieu = listpc.get(0);
+              sg= phongchieu.getSoGhe();
+                tvSGhe.setText("Số ghế còn lại là: "+sg);
+
+
+
+
+
+
 
             }
 
@@ -236,6 +261,12 @@ public class Quan_ly_hoa_don extends Fragment {
                     Toast.makeText(getContext(), "Vui lòng nhập sô lượng", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if(socl<0){
+                    Toast.makeText(getContext(), "Số vé bạn nhập ko hợp lệ", Toast.LENGTH_SHORT).show();
+                    return;
+
+
+                }
 
 
 
@@ -243,12 +274,28 @@ public class Quan_ly_hoa_don extends Fragment {
                 int soluong = Integer.parseInt(edtSL.getText().toString());
                 String ngay = edngayin.getText().toString();
                 float tongtien = Float.parseFloat(tvtongtien.getText().toString());
+                int thanhtoan = 1;
+                Calendar calendar = Calendar.getInstance();
+                SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                String time = timeFormat.format(calendar.getTime());
+                String date = dateFormat.format(calendar.getTime());
 
 
 
 
 
-                hoadon hd = new hoadon(manv,makh,maphim,masc,soluong,tongtien,ngay);
+                hoadon hd = new hoadon(manv,makh,maphim,masc,soluong,tongtien,date,thanhtoan);
+                phongchieuDAO pcdao= new phongchieuDAO(getContext());
+                ArrayList<phonchieu> listpc = pcdao.getsgPC(idpc);
+                phonchieu phongchieu = listpc.get(0);
+
+                if(pcdao.udPCc(idpc,socl)){
+                    Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getContext(), "Đã update số ghế k tc", Toast.LENGTH_SHORT).show();
+
+                }
 
 
                 if(hddao.themHD(hd)){
@@ -257,6 +304,7 @@ public class Quan_ly_hoa_don extends Fragment {
                     list.addAll(hddao.getHD());
                     adapter.notifyDataSetChanged();
                     dialog.dismiss();
+                    rvc.smoothScrollToPosition(adapter.getItemCount() - 1);
 
 
                 }

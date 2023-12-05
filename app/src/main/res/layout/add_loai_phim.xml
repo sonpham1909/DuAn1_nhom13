@@ -15,6 +15,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Thêm thể loại phim"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
         />
@@ -60,14 +62,19 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:text="Save"
+           android:textColor="@color/white"
            android:layout_marginRight="80dp"
+           android:background="@drawable/brnhanvien"
+           android:backgroundTint="@color/black"
            android:id="@+id/btnsave"
            />
        <Button
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:text="Cancel"
-           android:backgroundTint="#F44336"
+           android:background="@drawable/brnhanvien"
+           android:backgroundTint="@color/black"
+           android:text="HỦY"
+           android:textColor="@color/white"
            android:id="@+id/btncancel"
            />
    </LinearLayout>

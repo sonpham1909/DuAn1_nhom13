@@ -13,10 +13,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HÓA ĐƠN VHI TIẾT"
+        android:text="HÓA ĐƠN CHI TIẾT"
         android:textStyle="bold"
         android:textSize="25sp"
-        android:layout_marginTop="100dp"
+
         android:layout_marginBottom="40dp"
         android:layout_gravity="center"
         />
@@ -28,6 +28,16 @@
         android:textSize="15sp"
       android:layout_margin="10dp"
         android:id="@+id/tvmahd"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mã nhân viên: "
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_margin="10dp"
+        android:id="@+id/tvmnvtt"
 
         />
     <TextView
@@ -51,6 +61,7 @@
 
 
         />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -65,11 +76,45 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Giá vé: "
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_margin="10dp"
+        android:id="@+id/tvGiaVE"
+
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Suất chiếu: "
         android:textStyle="bold"
         android:textSize="15sp"
         android:layout_margin="10dp"
         android:id="@+id/tvsuatchieutt"
+
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phòng chiếu: "
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_margin="10dp"
+        android:id="@+id/tvphongchieutt"
+
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ngày chiếu: "
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_margin="10dp"
+        android:id="@+id/tvngaysuatchieutt"
 
 
         />
@@ -115,13 +160,7 @@
       android:layout_height="wrap_content"
       android:gravity="center"
       android:orientation="horizontal">
-      <Button
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="Sửa"
-          android:layout_marginRight="70dp"
-          android:id="@+id/suaHD"
-          />
+
       <Button
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"

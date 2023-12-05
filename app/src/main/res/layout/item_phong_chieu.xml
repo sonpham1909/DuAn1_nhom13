@@ -2,7 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/cardPC"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/brnhanvien"
+    android:layout_margin="10dp"
+    android:padding="10dp"
 
     android:orientation="vertical">
 
@@ -11,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:background="@drawable/brnhanvien"
+
         android:orientation="horizontal"
         android:padding="5dp">
 
@@ -53,9 +56,18 @@
                 android:layout_marginTop="10dp"
                 android:textSize="15sp" />
 
+
         </LinearLayout>
 
 
+
     </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnCAPNHAT"
+        android:text="Bạn muốn cập nhật số luọng ghế tróng ko"
+        android:visibility="gone"
+        />
 
 </LinearLayout>

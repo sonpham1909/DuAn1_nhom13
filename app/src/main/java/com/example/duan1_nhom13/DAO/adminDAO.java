@@ -1,5 +1,6 @@
 package com.example.duan1_nhom13.DAO;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -10,6 +11,7 @@ import com.example.duan1_nhom13.Model.user;
 import com.example.duan1_nhom13.database.dbhelper;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class adminDAO {
     private dbhelper dbhelper;
@@ -90,6 +92,37 @@ public class adminDAO {
         return (row>0);
 
 
+    }
+    @SuppressLint("Range")
+    public List<user> getDAta(String sql, String...SelectAGr){
+        List<user> list = new ArrayList<user>();
+        SQLiteDatabase db= dbhelper.getReadableDatabase();
+        Cursor c = db.rawQuery(sql, SelectAGr);
+        while(c.moveToNext()){
+            user tt = new user();
+            tt.setUser(c.getString(c.getColumnIndex("user")));
+            tt.setTen(c.getString(c.getColumnIndex("tenuser")));
+            tt.setPass(c.getString(c.getColumnIndex("pass")));
+            tt.setSodienthoai(c.getString(c.getColumnIndex("sodienthoai")));
+            tt.setRole(c.getInt(c.getColumnIndex("role")));
+            list.add(tt);
+
+        }
+
+        return list;
+
+    }
+
+    public List<user> getAll(){
+
+        String sql = "Select*from user";
+        return getDAta(sql);
+    }
+
+    public user getID(String id){
+        String sql = "Select*from user where user=?";
+        List<user> list = getDAta(sql,id);
+        return list.get(0);
     }
 
 

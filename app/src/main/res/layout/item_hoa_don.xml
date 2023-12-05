@@ -16,7 +16,7 @@
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="50dp"
             android:layout_marginLeft="20dp"
@@ -61,6 +61,29 @@
                 android:layout_marginTop="10dp"
                 android:text="Ngày in hóa đơn"
                 android:textSize="15sp" />
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_thanhtoan"
+                android:text="Đã thanh toán"
+                android:textSize="15sp"
+                android:textColor="#F44336"
+                android:textStyle="italic"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_tinhtien"
+                android:text="0 vnd"
+                android:textSize="20sp"
+                android:textColor="#F44336"
+                android:textStyle="bold"
+                android:layout_gravity="end"
+                />
+
+
 
         </LinearLayout>
         <Button
@@ -68,6 +91,7 @@
             android:id="@+id/btnthanhtoan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#4CAF50"
             android:text="Đã thanh toán"
             />
 

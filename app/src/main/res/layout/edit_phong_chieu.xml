@@ -91,7 +91,8 @@
             android:text="CẬP NHẬT"
             android:textColor="@color/white"
             android:layout_marginHorizontal="40dp"
-            android:background="@drawable/vien"
+            android:background="@drawable/brnhanvien"
+            android:backgroundTint="@color/black"
             android:layout_marginTop="10dp"/>
         <Button
             android:id="@+id/btnDeletePC"
@@ -100,7 +101,8 @@
             android:text="XÓA"
             android:textColor="@color/white"
             android:layout_marginHorizontal="40dp"
-            android:background="@drawable/vien"
+            android:background="@drawable/brnhanvien"
+            android:backgroundTint="@color/black"
             android:layout_marginTop="10dp"/>
 
     </LinearLayout>

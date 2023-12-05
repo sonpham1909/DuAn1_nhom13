@@ -35,12 +35,16 @@ import android.widget.Toast;
 import com.example.duan1_nhom13.DAO.adminDAO;
 import com.example.duan1_nhom13.Fragment.Quan_ly_hoa_don;
 import com.example.duan1_nhom13.Fragment.Quan_ly_khach_hang;
+import com.example.duan1_nhom13.Fragment.Quan_ly_lich_lam_viec;
+import com.example.duan1_nhom13.Fragment.doi_mat_khau;
 import com.example.duan1_nhom13.Fragment.man_hinh_chinh;
 import com.example.duan1_nhom13.Fragment.quan_ly_phim;
 import com.example.duan1_nhom13.Fragment.quan_ly_nhan_vien;
 import com.example.duan1_nhom13.Fragment.quan_ly_loai_phim;
 import com.example.duan1_nhom13.Fragment.quan_ly_phong_chieu;
 import com.example.duan1_nhom13.Fragment.quan_ly_suat_chieu;
+import com.example.duan1_nhom13.Fragment.sap_ca_lam_nv;
+import com.example.duan1_nhom13.Fragment.thong_ke;
 import com.example.duan1_nhom13.Fragment.thong_tin_tai_khoan;
 import com.example.duan1_nhom13.Model.user;
 import com.google.android.material.navigation.NavigationView;
@@ -110,8 +114,10 @@ public class home extends AppCompatActivity {
         if (us.getRole()==1) {
 
             navigationView.getMenu().findItem(R.id.add_user).setVisible(true);
+            navigationView.getMenu().findItem(R.id.manager_calam).setVisible(true);
         } else {
             navigationView.getMenu().findItem(R.id.add_user).setVisible(false);
+            navigationView.getMenu().findItem(R.id.manager_calam).setVisible(false);
         }
 
 
@@ -137,6 +143,11 @@ public class home extends AppCompatActivity {
               }else if(item.getItemId()==R.id.manager_SC) {
                   fragment = new quan_ly_suat_chieu();
                   actionBar.setSubtitle("Quản lý suất chiếu");
+                  replace(fragment);
+              }
+              else if(item.getItemId()==R.id.money) {
+                  fragment = new thong_ke();
+                  actionBar.setSubtitle("Thống kê");
                   replace(fragment);
               }else if(item.getItemId()==R.id.user_profile) {
                   fragment = new thong_tin_tai_khoan();
@@ -170,6 +181,21 @@ public class home extends AppCompatActivity {
                   replace(fragment);
 
                 }
+              else if(item.getItemId()==R.id.manager_calam){
+                  fragment = new Quan_ly_lich_lam_viec();
+                  actionBar.setSubtitle("Quản lý ca làm");
+                  replace(fragment);
+
+              }
+              else if(item.getItemId()==R.id.manager_LL){
+                  fragment = new sap_ca_lam_nv();
+                  actionBar.setSubtitle("Quản lý ca làm");
+                  replace(fragment);
+
+              }else if(item.getItemId()==R.id.change_password){
+                  doimatkhau();
+
+              }
               else if(item.getItemId()==R.id.logout){
 
                   tt =false;
@@ -300,6 +326,56 @@ public class home extends AppCompatActivity {
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putBoolean("hh",true);
                         editor.apply();
+
+
+
+                        replace(fragment);
+                        dialog.dismiss();
+
+
+                    }else{
+                        Toast.makeText(home.this, "Sai mật khẩu", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+        btnkxz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+    }
+    public void doimatkhau(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.xnpass,null);
+        builder.setView(view);
+        Dialog dialog = builder.create();
+        dialog.show();
+
+        EditText edtxnpass = view.findViewById(R.id.edtpassxn);
+        Button btnxz = view.findViewById(R.id.btnxn);
+        Button btnkxz = view.findViewById(R.id.btnkxn);
+        btnxz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences sharedPreferences = getSharedPreferences("thongtin",MODE_PRIVATE);
+                String pass = sharedPreferences.getString("pass","");
+                if(edtxnpass.getText().toString().isEmpty()){
+                    Toast.makeText(home.this, "Không để trống", Toast.LENGTH_SHORT).show();
+                }else{
+                    if(edtxnpass.getText().toString().equals(pass)){
+                        fragment = new doi_mat_khau();
+
+
+                        ActionBar actionBar  = getSupportActionBar();
+
+                        actionBar.setDisplayHomeAsUpEnabled(true);
+                        actionBar.setHomeAsUpIndicator(R.drawable.menu);
+                        actionBar.setSubtitle("Đổi mật khẩu");
+                        actionBar.setTitle("SpecTraFlix");
+
 
 
 

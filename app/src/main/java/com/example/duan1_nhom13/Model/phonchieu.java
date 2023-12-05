@@ -13,6 +13,10 @@ public class phonchieu {
     public phonchieu() {
     }
 
+    public phonchieu(int soGhe) {
+        this.soGhe = soGhe;
+    }
+
     public phonchieu(int maPC, String tenPC, int soGhe) {
         this.maPC = maPC;
         this.tenPC = tenPC;

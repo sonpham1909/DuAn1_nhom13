@@ -164,6 +164,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Sửa"
+            android:background="@drawable/brnhanvien"
             android:backgroundTint="@color/black"
             android:id="@+id/btnsuanvu"
             android:textColor="@color/white"
@@ -174,6 +175,7 @@
             android:textColor="@color/white"
             android:layout_height="wrap_content"
             android:text="Hủy"
+            android:background="@drawable/brnhanvien"
             android:backgroundTint="@color/black"
             android:id="@+id/btnhuynvu"
 

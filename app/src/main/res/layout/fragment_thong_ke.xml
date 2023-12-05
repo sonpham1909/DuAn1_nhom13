@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Fragment.thong_ke">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tổng doanh thu"
+        android:layout_marginLeft="20dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:src="@drawable/lich1"
+                android:layout_marginTop="10dp"/>
+
+            <Button
+                android:id="@+id/btnNgay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ngày"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/brnhanvien"
+                android:textColor="@color/black"/>
+
+            <Button
+                android:id="@+id/btnTuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tuần"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/brnhanvien"
+                android:textColor="@color/black"/>
+
+            <Button
+                android:id="@+id/btnThang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tháng"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/brnhanvien"
+                android:textColor="@color/black"/>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/clossealll"
+                android:backgroundTint="@color/white"
+                android:id="@+id/btnbo"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/brnhanvien"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="15dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline"
+                android:layout_marginTop="12dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LỢI NHUẬN"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/black"
+        android:textSize="20dp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvLoiNhuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="1.250.000"
+            android:layout_gravity="center"
+            android:textColor="#0C7442"
+            android:textSize="30dp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+    <EditText
+        android:id="@+id/edDuong"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thống kê doanh thu"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/conformation"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Số lượt đặt vé"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/black"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:id="@+id/tvVe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="550 vé"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="180dp"
+            android:textColor="@color/black"
+            android:textSize="15dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bar_chart"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Top 5 phim được xem nhiều nhất"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:textColor="#F44336"
+            android:textSize="20dp"/>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
+
+</LinearLayout>

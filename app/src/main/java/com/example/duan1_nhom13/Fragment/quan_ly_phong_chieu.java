@@ -55,6 +55,7 @@ PC_Adapter adapter;
         fltbtn = view.findViewById(R.id.btnaddPc);
         PCDAO = new phongchieuDAO(getContext());
         list = PCDAO.getPC();
+        loadlist();
         GridLayoutManager manager = new GridLayoutManager(getContext(),1);
         rcv.setLayoutManager(manager);
         adapter = new PC_Adapter(getContext(),list);

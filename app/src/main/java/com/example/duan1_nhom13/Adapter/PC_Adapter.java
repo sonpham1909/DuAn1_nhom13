@@ -59,6 +59,18 @@ public class PC_Adapter extends RecyclerView.Adapter<PC_Adapter.Viewholder> {
 
         SharedPreferences sharedPreferences =context.getSharedPreferences("role",context.MODE_PRIVATE);
         int role = sharedPreferences.getInt("role",1);
+        if (pc.getSoGhe()==0){
+            holder.btnCAPNHAT.setVisibility(View.VISIBLE);
+            holder.btnCAPNHAT.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    udPC(pc);
+                }
+            });
+        }else {
+            holder.btnCAPNHAT.setVisibility(View.GONE);
+
+        }
 
         if(role==1) {
             holder.ln.setOnClickListener(new View.OnClickListener() {
@@ -108,6 +120,7 @@ public class PC_Adapter extends RecyclerView.Adapter<PC_Adapter.Viewholder> {
     public static class Viewholder extends RecyclerView.ViewHolder{
         TextView tvMa,tvTen,tvsoGhe;
         LinearLayout ln;
+        Button btnCAPNHAT;
 
         public Viewholder(@NonNull View itemView) {
             super(itemView);
@@ -115,6 +128,7 @@ public class PC_Adapter extends RecyclerView.Adapter<PC_Adapter.Viewholder> {
             tvTen = itemView.findViewById(R.id.tvTenPhongChieu);
             tvsoGhe = itemView.findViewById(R.id.tvSoLuongGhe);
             ln = itemView.findViewById(R.id.cardPC);
+            btnCAPNHAT = itemView.findViewById(R.id.btnCAPNHAT);
 
 
         }

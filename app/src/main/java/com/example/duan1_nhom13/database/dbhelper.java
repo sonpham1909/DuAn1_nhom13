@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 public class dbhelper extends SQLiteOpenHelper {
 
     public dbhelper(@Nullable Context context) {
-        super(context, "QLRP", null, 13);
+        super(context, "QLRP", null, 25);
     }
 
     @Override
@@ -60,9 +60,22 @@ public class dbhelper extends SQLiteOpenHelper {
                 "maSC integer references suatchieu(maSC)," +
                 "soLuongVe integer," +
                 "tongTien real," +
-                "ngayInHoaDon text" +
-                ")");
-        db.execSQL("insert into hoadon values(1,'admin',1,1,1,4,30000,'19-09-2023',1)");
+                "ngayInHoaDon date," +
+                "thanhToan integer)");
+        db.execSQL("insert into hoadon values(1,'admin',1,1,1,4,30000,'2023-09-19',1),(7,'admin',1,1,1,4,30000333,'2023-09-11',1)");
+        db.execSQL("Create table calam(" +
+                "maca integer primary key autoincrement," +
+                "tenca text," +
+                "giobatdau text," +
+                "gioketthuc text)");
+        db.execSQL("insert into calam values(1,'Ca sáng','7:00','12:00'),(2,'Ca chiều','14:00','19:00'),(3,'Ca tối','19:00','23:59')");
+        db.execSQL("Create table lichlam(" +
+                "malich integer primary key autoincrement," +
+                "maNV text references user(user)," +
+                "maca integer references calam(maca)," +
+                "ngayBD text," +
+                "ngayKT text)");
+        db.execSQL("insert into lichlam values(2,'admin',1,'30/11/2023','30/11/2023'),(3,'son123',2,'31/11-2023','31/11-2023')");
 
     }
 
@@ -76,6 +89,8 @@ public class dbhelper extends SQLiteOpenHelper {
            db.execSQL("DROP TABLE IF EXISTS  suatchieu");
            db.execSQL("DROP TABLE IF EXISTS  khachhang");
            db.execSQL("DROP TABLE IF EXISTS  hoadon");
+           db.execSQL("DROP TABLE IF EXISTS  calam");
+           db.execSQL("DROP TABLE IF EXISTS  lichlam");
            onCreate(db);
 
        }

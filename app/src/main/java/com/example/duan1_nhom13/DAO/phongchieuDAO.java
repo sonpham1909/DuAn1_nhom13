@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.duan1_nhom13.Model.loaisach;
 import com.example.duan1_nhom13.Model.phonchieu;
 import com.example.duan1_nhom13.database.dbhelper;
 
@@ -36,12 +35,39 @@ public class phongchieuDAO {
         }
         return list;
     }
-    public phonchieu getidPC(String id){
+    public ArrayList<phonchieu> getsgPC(int id) {
+        ArrayList<phonchieu> list = new ArrayList<>();
+
+        SQLiteDatabase sqLiteDatabase = dbhelper.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT soGhe FROM phongchieu WHERE maPC = ?", new String[]{String.valueOf(id)});
+
+        int columnIndex = cursor.getColumnIndex("soGhe");
+        if (columnIndex == -1) {
+            // Tên cột không tồn tại trong kết quả truy vấn
+            cursor.close();
+            sqLiteDatabase.close();
+            return list;
+        }
+
+        if (cursor.moveToFirst()) {
+            do {
+                int soGhe = cursor.getInt(columnIndex);
+                phonchieu phongchieu = new phonchieu(soGhe);
+                list.add(phongchieu);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        sqLiteDatabase.close();
+
+        return list;
+    }
+    public phonchieu getidPC(int id){
        phonchieu phonchieu = new phonchieu();
 
 
         SQLiteDatabase sqLiteDatabase = dbhelper.getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("select*from phongchieu where maloai=?", new String[]{id});
+        Cursor cursor = sqLiteDatabase.rawQuery("select*from phongchieu where maPC=?", new String[]{String.valueOf(id)});
         if(cursor.getCount()!= 0){
             cursor.moveToFirst();
             do {
@@ -70,6 +96,18 @@ public class phongchieuDAO {
         values.put("tenPC",pc.getTenPC());
         values.put("soGhe",pc.getSoGhe());
         long row = db.update("phongchieu",values,"maPC=?",new String[]{String.valueOf(pc.getMaPC())});
+
+        return (row>0);
+
+
+
+    }
+    public boolean udPCc(int id,int soghe){
+        SQLiteDatabase db= dbhelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put("soGhe",soghe);
+        long row = db.update("phongchieu",values,"maPC=?",new String[]{String.valueOf(id)});
 
         return (row>0);
 

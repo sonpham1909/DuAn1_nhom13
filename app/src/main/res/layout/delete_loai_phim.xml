@@ -14,6 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bạn chắc chắn muốn xóa?"
+        android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
         />
@@ -23,11 +24,15 @@
         android:gravity="center"
         android:orientation="horizontal"
         >
+
+
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/accept"
             android:layout_marginRight="100dp"
+            android:background="@drawable/brnhanvien"
+            android:backgroundTint="@color/black"
             android:id="@+id/yes"
             />
         <ImageButton

@@ -171,6 +171,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="100dp"
+            android:background="@drawable/brnhanvien"
             android:backgroundTint="@color/black"
             android:textColor="@color/white"
             android:text="Thêm" />
@@ -179,6 +180,7 @@
             android:id="@+id/btnhuynv"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:background="@drawable/brnhanvien"
             android:backgroundTint="@color/black"
             android:textColor="@color/white"
             android:text="Hủy"

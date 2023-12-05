@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/cardLichlam"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_margin="10dp"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:background="@drawable/brnhanvien"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Nhân viên: " android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:id="@+id/tvtenNVL"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="CA: " android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:id="@+id/tvCAlam"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Ngày bắt đầu: " android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:id="@+id/tvNBD"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Giờ bắt đầu: " android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:id="@+id/tvGBD"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Ngày kết thúc: " android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:id="@+id/tvNKT"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Giờ kết thúc: " android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:id="@+id/tvGKT"
+
+        />
+
+</LinearLayout>
+
+</LinearLayout>

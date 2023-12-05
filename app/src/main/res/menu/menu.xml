@@ -17,7 +17,7 @@
         <menu>
             <item
                 android:id="@+id/manager_bill"
-                android:icon="@drawable/movie"
+                android:icon="@drawable/bill"
                 android:title="Hóa đơn đặt vé" />
             <item
                 android:id="@+id/manager_movie"
@@ -25,36 +25,37 @@
                 android:title="Phim" />
             <item
                 android:id="@+id/manager_user"
-                android:icon="@drawable/movie"
+                android:icon="@drawable/khachhang"
                 android:title="Khách hàng "/>
             <item
                 android:id="@+id/manager_category"
-                android:icon="@drawable/movie"
+                android:icon="@drawable/category"
                 android:title="Thể loại" />
             <item
                 android:id="@+id/manager_PC"
-                android:icon="@drawable/movie"
+                android:icon="@drawable/phong"
                 android:title="Phòng chiếu" />
             <item
                 android:id="@+id/manager_SC"
-                android:icon="@drawable/movie"
+                android:icon="@drawable/suatchieu"
                 android:title="Suất chiếu" />
             <item
                 android:id="@+id/manager_calam"
-                android:icon="@drawable/movie"
+                android:icon="@drawable/lich1"
                 android:title="Ca làm" />
+            <item
+                android:id="@+id/manager_LL"
+                android:icon="@drawable/calam"
+                android:title="Lịch làm việc" />
         </menu>
     </item>
 
     <item android:title="Thống kê">
         <menu>
-            <item
-                android:id="@+id/top10"
-                android:icon="@drawable/movie"
-                android:title="Top 10 sách mượn nhiều nhất" />
+
             <item
                 android:id="@+id/money"
-                android:icon="@drawable/movie"
+                android:icon="@drawable/thongke"
                 android:title="Doanh thu" />
         </menu>
     </item>
@@ -63,15 +64,15 @@
         <menu>
             <item
                 android:id="@+id/user_profile"
-                android:icon="@drawable/movie"
+                android:icon="@drawable/baseline_person_3_24"
                 android:title="Thông tin tài khoản" />
             <item
                 android:id="@+id/change_password"
-                android:icon="@drawable/movie"
+                android:icon="@drawable/baseline_password_24"
                 android:title="Thay đổi mật khẩu" />
             <item
                 android:id="@+id/add_user"
-                android:icon="@drawable/movie"
+                android:icon="@drawable/manager"
                 android:title="Quản lý nhân viên" />
         </menu>
     </item>

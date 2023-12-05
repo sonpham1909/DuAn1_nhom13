@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/cardSC"
+    android:id="@+id/cardLich"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -34,14 +34,15 @@
                 android:layout_height="wrap_content"
                 android:text="Mã lịch làm"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                />
             <TextView
-                android:id="@+id/tvNgayLamViec"
+                android:id="@+id/tvTenLichLam"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Ngày làm việc"
-                android:textSize="15sp" />
+                android:text="Tên lịch làm"
+                android:textSize="16sp"
+                />
+
 
 
             <TextView
@@ -60,13 +61,7 @@
                 android:text="Giờ kết thúc"
                 android:textSize="15sp" />
 
-            <TextView
-                android:id="@+id/tvTT"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Trạng thái"
-                android:textSize="15sp" />
+
 
         </LinearLayout>
 

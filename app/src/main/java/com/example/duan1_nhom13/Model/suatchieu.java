@@ -1,5 +1,7 @@
 package com.example.duan1_nhom13.Model;
 
+import android.widget.TextView;
+
 public class suatchieu {
     private int maSC;
     private String tenSC,ngaychieu,giochieu;

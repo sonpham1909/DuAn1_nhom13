@@ -12,9 +12,11 @@
         android:src="@drawable/th"
         />
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="Choose image"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/brnhanvien"
         android:backgroundTint="@color/black"
         android:textColor="@color/white"
         android:id="@+id/btnchoose"/>
@@ -22,6 +24,7 @@
         android:background="@drawable/bredittext"
         android:layout_width="match_parent"
         android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
         android:layout_height="50dp"
         android:id="@+id/spnloaisach"
         />
@@ -68,6 +71,7 @@
             android:layout_height="wrap_content"
             android:text="Thêm phim"
             android:id="@+id/btnaddphim"
+            android:background="@drawable/brnhanvien"
             android:backgroundTint="@color/black"
             android:textColor="@color/white"
             android:layout_marginRight="50dp"/>
@@ -76,7 +80,8 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:text="Hủy"
-            android:backgroundTint="#F44336"
+            android:background="@drawable/brnhanvien"
+            android:backgroundTint="@color/black"
             android:id="@+id/btnhuy"/>
     </LinearLayout>
 
