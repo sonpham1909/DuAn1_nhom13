@@ -75,7 +75,7 @@ public class dbhelper extends SQLiteOpenHelper {
                 "maca integer references calam(maca)," +
                 "ngayBD text," +
                 "ngayKT text)");
-        db.execSQL("insert into lichlam values(2,'admin',1,'30/11/2023','30/11/2023'),(3,'son123',2,'31/11-2023','31/11-2023')");
+        db.execSQL("insert into lichlam values(2,'admin',1,'30/11/2023','30/11/2023'),(3,'son123',2,'31/11/2023','31/11/2023')");
 
     }
 
